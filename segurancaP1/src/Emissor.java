@@ -22,7 +22,7 @@ public class Emissor {
 
     public void enviarMensagemBroadcastVi(String mensagem) {
         String mensagemCriptografada = cifra.criptografarVigenere(mensagem);
-        comunicacao.enviarMensagemBroadcastVe(mensagemCriptografada, this.id);
+        comunicacao.enviarMensagemBroadcastVi(mensagemCriptografada, this.id);
     }
 
     public void enviarMensagemBroadcastVe(String mensagem) {
