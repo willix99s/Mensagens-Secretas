@@ -46,19 +46,25 @@ public class CifraSimetrica {
 
     // Implementação da cifra de Vernam
     public String criptografarVernam(String mensagem) {
+        int tamanhoMsg = mensagem.length();
+        String chaveFinal = key.chaveIgual(chave, tamanhoMsg);
+
         String mensagemCriptografada = "";
         for (int i = 0; i < mensagem.length(); i++) {
             char caractere = mensagem.charAt(i);
-            mensagemCriptografada += (char)(caractere ^ chave.charAt(i));
+            mensagemCriptografada += (char)(caractere ^ chaveFinal.charAt(i));
         }
         return mensagemCriptografada;
     }
 
     public String descriptografarVernam(String mensagemCriptografada) {
+        int tamanhoMsg = mensagemCriptografada.length();
+        String chaveFinal = key.chaveIgual(chave, tamanhoMsg);
+
         String mensagem = "";
         for (int i = 0; i < mensagemCriptografada.length(); i++) {
             char caractere = mensagemCriptografada.charAt(i);
-            mensagem += (char)(caractere ^ chave.charAt(i));
+            mensagem += (char)(caractere ^ chaveFinal.charAt(i));
         }
         return mensagem;
     }
